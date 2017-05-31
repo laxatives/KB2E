@@ -23,9 +23,13 @@ for line in f:
     seg = line.strip().split()
     relation2id[seg[0]] = int(seg[1])
     id2relation[int(seg[1])]=seg[0]
-    id2relation[int(seg[1])+1345]="~"+seg[0]
     relation_num+=1
+
+for line in f:
+    seg = line.strip().split()
+    id2relation[int(seg[1])+relation_num]="~"+seg[0]
 f.close()
+
 f = open("data/train.txt","r")
 ok = {}
 a ={}
